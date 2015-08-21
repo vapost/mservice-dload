@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"fmt"
 )
 
 func getConfig(c *cli.Context) (service.Config, error) {
@@ -27,6 +28,14 @@ func getConfig(c *cli.Context) (service.Config, error) {
 
 	err = yaml.Unmarshal([]byte(ymlData), &config)
 	return config, err
+}
+
+type Bla struct {
+	yo string
+}
+
+func (b *Bla)goNuts() string {
+	return "Going crazey"
 }
 
 func main() {
@@ -58,9 +67,12 @@ func main() {
 
 				svc := service.StatService{}
 
-				if err = svc.Run(cfg); err != nil {
+				bla := Bla{}
+				fmt.Println(bla.goNuts(), svc.Run(cfg))
+
+				/*if err = svc.Run(cfg); err != nil {
 					log.Fatal(err)
-				}
+				}*/
 			},
 		},
 
