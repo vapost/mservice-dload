@@ -62,12 +62,12 @@ func main() {
 				svc := service.StatService{}
 
 				bla := service.Bla{}
-				
-				fmt.Println(bla.goNuts(), svc, cfg)
 
-				/*if err = svc.Run(cfg); err != nil {
+				fmt.Println(bla.goNuts())
+
+				if err = svc.Run(cfg); err != nil {
 					log.Fatal(err)
-				}*/
+				}
 			},
 		},
 
