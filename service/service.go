@@ -40,3 +40,12 @@ func (s *StatService) Run(config Config) error {
 
 	return nil
 }
+
+
+type Bla struct {
+	yo string
+}
+
+func (b *Bla)goNuts() string {
+	return "Going crazey"
+}

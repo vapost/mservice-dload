@@ -30,13 +30,7 @@ func getConfig(c *cli.Context) (service.Config, error) {
 	return config, err
 }
 
-type Bla struct {
-	yo string
-}
 
-func (b *Bla)goNuts() string {
-	return "Going crazey"
-}
 
 func main() {
 
@@ -68,7 +62,7 @@ func main() {
 				svc := service.StatService{}
 
 				bla := Bla{}
-				fmt.Println(bla.goNuts(), svc.Run(cfg))
+				fmt.Println(bla.goNuts(), svc, cfg)
 
 				/*if err = svc.Run(cfg); err != nil {
 					log.Fatal(err)
