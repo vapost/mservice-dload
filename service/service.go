@@ -20,7 +20,7 @@ func (s *StatService) Run(config Config) error {
 		return err
 	}*/
 
-	statResource := &resource.StatResource{}
+	//statResource := &resource.StatResource{}
 
 	//statResource.Db = db
 
