@@ -1,5 +1,9 @@
 package service
 
+import(
+	"net/http"
+	"github.com/gin-gonic/gin"
+)
 
 type Config struct {
 	ServiceHost string
