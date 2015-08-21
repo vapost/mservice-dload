@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/vapost/mservice-dload/service"
 	"errors"
 	"github.com/codegangsta/cli"
 	"gopkg.in/yaml.v1"
@@ -42,6 +43,28 @@ func main() {
 			"config file to use",
 			"APP_CONFIG",
 		},
+	}
+
+	app.Commands = []cli.Command{
+		{
+			Name:  "server",
+			Usage: "Run the http server",
+			Action: func(c *cli.Context) {
+				cfg, err := getConfig(c)
+				if err != nil {
+					log.Fatal(err)
+					return
+				}
+
+				svc := service.StatService{}
+
+				if err = svc.Run(cfg); err != nil {
+					log.Fatal(err)
+				}
+			},
+		},
+
+		
 	}
 
 	app.Run(os.Args)
