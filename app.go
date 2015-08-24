@@ -50,6 +50,19 @@ func main() {
 
 	app.Commands = []cli.Command{
 		{
+			Name: "spy",
+			Usage: "See the config",
+			Action: func(c *cli.Context) {
+				cfg, err := getConfig(c)
+				if err != nil {
+					log.Fatal(err)
+					return
+				}
+
+				fmt.Println(cfg.Jwt)
+			},
+		},
+		{
 			Name:  "server",
 			Usage: "Run the http server",
 			Action: func(c *cli.Context) {
@@ -59,18 +72,30 @@ func main() {
 					return
 				}
 
-				svc := service.StatService{}
-
-				bla := service.Bla{}
-
-				fmt.Println(bla.goNuts())
+				svc := service.Service{}
 
 				if err = svc.Run(cfg); err != nil {
 					log.Fatal(err)
 				}
 			},
 		},
+		{
+			Name: "get-hotels",
+			Usage: "Get hotels for destinations",
+			Action: func(c *cli.Context) {
+				cfg, err := getConfig(c)
+				if err != nil {
+					log.Fatal(err)
+					return
+				}
 
+				svc := service.Service{}
+
+				if err = svc.GetHotelObjects(cfg); err != nil {
+					log.Fatal(err)
+				}
+			},
+		},
 		
 	}
 

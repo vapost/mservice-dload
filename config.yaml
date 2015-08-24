@@ -1,1 +1,19 @@
 servicehost: :8080
+
+jwt:
+  key: CJhbGciOiJIUizI1eyJ0eXAiOJKV1QiLa!2]12#4
+  consumer: 1
+  TTL: 72000
+
+endpoints:
+  base: http://pp.urlaubspiraten.de/v2/booking
+  get_hotels: /%s/offers/objects
+
+
+hotelparams:
+  type: packages
+  hotel_rating_min: 70
+  category: 3
+  destination: 35
+  date_earliest: 2015-08-30
+  date_latest: 2015-10-22
